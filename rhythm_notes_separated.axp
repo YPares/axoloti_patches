@@ -1,5 +1,28 @@
 <patch-1.0 appVersion="1.0.12">
-   <patcher type="patch/patcher" uuid="01171d20-5cec-49c1-b4d7-342fce720a09" name="apply_rhythm" x="266" y="42">
+   <obj type="./bass_portamento" uuid="80986efa-e15f-4a10-8006-615fbead6886" name="bass_portamento_1" x="616" y="28">
+      <params>
+         <frac32.u.map name="glide_1" MidiCC="5" value="36.5"/>
+         <frac32.s.map name="pwm_1" value="0.0"/>
+         <frac32.s.map name="adsr_1:a" value="-64.0"/>
+         <frac32.s.map name="adsr_1:d" value="0.0"/>
+         <frac32.u.map name="adsr_1:s" value="33.0"/>
+         <frac32.s.map name="adsr_1:r" value="-60.0"/>
+         <frac32.u.map name="mix_1:gain1" value="7.5"/>
+         <frac32.u.map name="mix_1:gain2" value="15.0"/>
+         <frac32.s.map name="vcf3_1:pitch" MidiCC="1" value="7.0"/>
+         <frac32.u.map name="vcf3_1:reso" MidiCC="2" value="33.0"/>
+         <frac32.s.map name="sine_2" value="-24.0"/>
+         <bool32.tgl name="filtered_or_not" value="1"/>
+         <frac32.s.map name="sine_1" MidiCC="14" value="-34.0"/>
+         <frac32.u.map name="*c_1" MidiCC="15" value="36.5"/>
+      </params>
+      <attribs>
+         <combo attributeName="midichannel" selection="4"/>
+         <combo attributeName="mididevice" selection="omni"/>
+         <combo attributeName="midiport" selection="omni"/>
+      </attribs>
+   </obj>
+   <patcher type="patch/patcher" uuid="0057a60d-717c-42eb-bcba-4b46acb47b91" name="apply_rhythm" x="266" y="42">
       <params>
          <frac32.s.map name="adsr_1:a" value="-42.0"/>
          <frac32.s.map name="adsr_1:d" value="0.0"/>
@@ -130,140 +153,18 @@
    </patcher>
    <obj type="mix/mix 4 g" uuid="36f472cd81da2e17bd4b4ee11b53b4c82527220c" name="mix_1" x="840" y="42">
       <params>
-         <frac32.u.map name="gain1" MidiCC="1" value="8.0"/>
+         <frac32.u.map name="gain1" MidiCC="1" value="13.0"/>
          <frac32.u.map name="gain2" MidiCC="2" value="43.0"/>
-         <frac32.u.map name="gain3" MidiCC="3" value="2.0"/>
-         <frac32.u.map name="gain4" MidiCC="4" value="4.5"/>
+         <frac32.u.map name="gain3" MidiCC="3" value="2.5"/>
+         <frac32.u.map name="gain4" MidiCC="4" value="4.0"/>
       </params>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="e67a49aa-7651-4174-b5cc-21f09b418c07" name="obj_1" x="630" y="84">
-      <params>
-         <frac32.u.map name="sat_1:drive" value="64.0"/>
-         <int32.hradio name="sat_1:fat" value="4"/>
-         <bool32.tgl name="sat_1:smooth" value="0"/>
-         <frac32.s.map name="lp_1:pitch" value="-51.0"/>
-         <frac32.u.map name="lp_1:reso" value="12.0"/>
-         <frac32.s.map name="tri_1" value="0.0"/>
-         <frac32.s.map name="adsr_1:a" value="15.0"/>
-         <frac32.s.map name="adsr_1:d" value="0.0"/>
-         <frac32.u.map name="adsr_1:s" value="64.0"/>
-         <frac32.s.map name="adsr_1:r" value="0.0"/>
-      </params>
-      <attribs>
-         <combo attributeName="poly" selection="1"/>
-         <combo attributeName="midichannel" selection="4"/>
-         <combo attributeName="mididevice" selection="omni"/>
-         <combo attributeName="midiport" selection="omni"/>
-      </attribs>
-      <subpatch appVersion="1.0.12">
-         <obj type="rbrt/fx/sat fat" uuid="aca76ea8-fc4f-484e-84ad-147861c06df3" name="sat_1" x="504" y="14">
-            <params>
-               <frac32.u.map name="drive" onParent="true" value="0.0"/>
-               <int32.hradio name="fat" onParent="true" value="0"/>
-               <bool32.tgl name="smooth" onParent="true" value="0"/>
-            </params>
-            <attribs/>
-         </obj>
-         <obj type="filter/lp svf" uuid="2003da6360b4fdb967cd635e9f6544e832fd522e" name="lp_1" x="378" y="28">
-            <params>
-               <frac32.s.map name="pitch" onParent="true" MidiCC="1" value="-19.0"/>
-               <frac32.u.map name="reso" onParent="true" MidiCC="2" value="0.0"/>
-            </params>
-            <attribs/>
-         </obj>
-         <obj type="osc/tri" uuid="905879afa8256b0ca207557d656949e476ca6f16" name="tri_1" x="266" y="126">
-            <params>
-               <frac32.s.map name="pitch" onParent="true" value="0.0"/>
-            </params>
-            <attribs/>
-         </obj>
-         <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_2" x="658" y="126">
-            <params/>
-            <attribs/>
-         </obj>
-         <obj type="midi/in/keyb mod" uuid="abcd509d15e7d13d5381203fd2b4d0ac6fe57bb3" name="keyb_1" x="112" y="140">
-            <params/>
-            <attribs/>
-         </obj>
-         <obj type="patch/outlet a" uuid="abd8c5fd3b0524a6630f65cad6dc27f6c58e2a3e" name="outlet_1" x="602" y="196">
-            <params/>
-            <attribs/>
-         </obj>
-         <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_1" x="532" y="210">
-            <params/>
-            <attribs/>
-         </obj>
-         <obj type="env/adsr" uuid="d1dbcc5fa6f87b98a6a91c87fd44acee5e690bac" name="adsr_1" x="336" y="252">
-            <params>
-               <frac32.s.map name="a" onParent="true" value="0.0"/>
-               <frac32.s.map name="d" onParent="true" value="0.0"/>
-               <frac32.u.map name="s" onParent="true" value="0.0"/>
-               <frac32.s.map name="r" onParent="true" value="0.0"/>
-            </params>
-            <attribs/>
-         </obj>
-         <nets>
-            <net>
-               <source obj="keyb_1" outlet="note"/>
-               <dest obj="tri_1" inlet="pitch"/>
-            </net>
-            <net>
-               <source obj="keyb_1" outlet="gate"/>
-               <dest obj="adsr_1" inlet="gate"/>
-            </net>
-            <net>
-               <source obj="keyb_1" outlet="velocity"/>
-               <dest obj="vca_2" inlet="v"/>
-            </net>
-            <net>
-               <source obj="vca_2" outlet="o"/>
-               <dest obj="vca_1" inlet="a"/>
-            </net>
-            <net>
-               <source obj="adsr_1" outlet="env"/>
-               <dest obj="vca_1" inlet="v"/>
-            </net>
-            <net>
-               <source obj="vca_1" outlet="o"/>
-               <dest obj="outlet_1" inlet="outlet"/>
-            </net>
-            <net>
-               <source obj="tri_1" outlet="wave"/>
-               <dest obj="lp_1" inlet="in"/>
-            </net>
-            <net>
-               <source obj="lp_1" outlet="out"/>
-               <dest obj="sat_1" inlet="in"/>
-            </net>
-            <net>
-               <source obj="sat_1" outlet="out"/>
-               <dest obj="vca_2" inlet="a"/>
-            </net>
-         </nets>
-         <settings>
-            <subpatchmode>polyphonic</subpatchmode>
-            <MidiChannel>1</MidiChannel>
-            <HasMidiChannelSelector>true</HasMidiChannelSelector>
-            <NPresets>8</NPresets>
-            <NPresetEntries>32</NPresetEntries>
-            <NModulationSources>8</NModulationSources>
-            <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
-         </settings>
-         <notes><![CDATA[]]></notes>
-         <windowPos>
-            <x>93</x>
-            <y>0</y>
-            <width>766</width>
-            <height>649</height>
-         </windowPos>
-      </subpatch>
-   </patcher>
    <obj type="audio/out stereo" uuid="a1ca7a567f535acc21055669829101d3ee7f0189" name="out_1" x="966" y="98">
       <params/>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="d699721f-33c1-44b2-8f80-9be8e64812bc" name="gen_chords" x="84" y="140">
+   <patcher type="patch/patcher" uuid="cfd90e2d-ff7a-4ff4-a3d7-b2c28ccd7fbc" name="gen_chords" x="84" y="140">
       <params/>
       <attribs>
          <combo attributeName="poly" selection="3"/>
@@ -327,7 +228,7 @@
          </windowPos>
       </subpatch>
    </patcher>
-   <patcher type="patch/patcher" uuid="95cbd5ac-c979-454b-a8b1-232ccadfd0b9" name="kick" x="448" y="210">
+   <patcher type="patch/patcher" uuid="a08d9ca1-e3ba-4c43-afa2-5c81cd2d4d65" name="kick" x="448" y="210">
       <params>
          <frac32.u.map name="kick_1:decay" value="22.0"/>
          <frac32.u.map name="kick_1:pitchdecay" value="22.5"/>
@@ -391,7 +292,7 @@
          </windowPos>
       </subpatch>
    </patcher>
-   <patcher type="patch/patcher" uuid="ff1bb109-42fc-4abb-b5e6-631ca82532ae" name="patcher_1" x="770" y="378">
+   <patcher type="patch/patcher" uuid="edf824b8-507d-41d8-bca4-527e91fa8838" name="patcher_1" x="770" y="378">
       <params>
          <frac32.s.map name="blown_1:pitch" value="12.0"/>
          <frac32.u.map name="blown_1:timbre" value="21.0"/>
@@ -465,7 +366,6 @@
             <NPresetEntries>32</NPresetEntries>
             <NModulationSources>8</NModulationSources>
             <NModulationTargetsPerSource>8</NModulationTargetsPerSource>
-            <Author></Author>
          </settings>
          <notes><![CDATA[]]></notes>
          <windowPos>
@@ -495,12 +395,12 @@
          <dest obj="mix_1" inlet="in2"/>
       </net>
       <net>
-         <source obj="obj_1" outlet="outlet_1"/>
-         <dest obj="mix_1" inlet="in3"/>
-      </net>
-      <net>
          <source obj="patcher_1" outlet="outlet_1"/>
          <dest obj="mix_1" inlet="in4"/>
+      </net>
+      <net>
+         <source obj="bass_portamento_1" outlet="outlet_1"/>
+         <dest obj="mix_1" inlet="in3"/>
       </net>
    </nets>
    <settings>
@@ -508,9 +408,9 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>307</x>
-      <y>85</y>
-      <width>1140</width>
-      <height>812</height>
+      <x>86</x>
+      <y>0</y>
+      <width>927</width>
+      <height>1087</height>
    </windowPos>
 </patch-1.0>
