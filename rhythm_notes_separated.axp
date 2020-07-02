@@ -1,28 +1,29 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="./bass_portamento" uuid="80986efa-e15f-4a10-8006-615fbead6886" name="bass_portamento_1" x="616" y="28">
+   <obj type="./bass_portamento" uuid="92722ec3-bfdb-4cd9-b489-3c66372ed8d6" name="bass_portamento_1" x="602" y="28">
       <params>
          <frac32.u.map name="glide_1" MidiCC="5" value="36.5"/>
          <frac32.s.map name="pwm_1" value="0.0"/>
          <frac32.s.map name="adsr_1:a" value="-64.0"/>
          <frac32.s.map name="adsr_1:d" value="0.0"/>
          <frac32.u.map name="adsr_1:s" value="33.0"/>
-         <frac32.s.map name="adsr_1:r" value="-60.0"/>
+         <frac32.s.map name="adsr_1:r" value="2.0"/>
          <frac32.u.map name="mix_1:gain1" value="7.5"/>
          <frac32.u.map name="mix_1:gain2" value="15.0"/>
-         <frac32.s.map name="vcf3_1:pitch" MidiCC="1" value="25.0"/>
+         <frac32.s.map name="vcf3_1:pitch" MidiCC="1" value="23.0"/>
          <frac32.u.map name="vcf3_1:reso" MidiCC="2" value="33.0"/>
          <frac32.s.map name="sine_2" value="-24.0"/>
          <bool32.tgl name="filtered_or_not" value="1"/>
+         <frac32.u.map name="vibrato_amt" value="64.0"/>
          <frac32.s.map name="sine_1" MidiCC="14" value="-34.0"/>
          <frac32.u.map name="*c_1" MidiCC="15" value="36.5"/>
       </params>
       <attribs>
          <combo attributeName="midichannel" selection="4"/>
-         <combo attributeName="mididevice" selection="omni"/>
+         <combo attributeName="mididevice" selection="din"/>
          <combo attributeName="midiport" selection="omni"/>
       </attribs>
    </obj>
-   <patcher type="patch/patcher" uuid="f74896b3-a620-480a-a1c7-2271ab8f70fb" name="apply_rhythm" x="266" y="42">
+   <patcher type="patch/patcher" uuid="ffbf692b-fe69-406d-9cb5-98171fd5ad13" name="apply_rhythm" x="266" y="42">
       <params>
          <frac32.s.map name="adsr_1:a" value="-42.0"/>
          <frac32.s.map name="adsr_1:d" value="0.0"/>
@@ -34,7 +35,7 @@
       </params>
       <attribs>
          <combo attributeName="midichannel" selection="1"/>
-         <combo attributeName="mididevice" selection="omni"/>
+         <combo attributeName="mididevice" selection="din"/>
          <combo attributeName="midiport" selection="omni"/>
       </attribs>
       <subpatch appVersion="1.0.12">
@@ -164,15 +165,15 @@
       <params/>
       <attribs/>
    </obj>
-   <patcher type="patch/patcher" uuid="cd4bfb2e-fc97-4b52-97fc-92eb8e93c3fc" name="gen_chords" x="84" y="140">
+   <patcher type="patch/patcher" uuid="71bed635-e129-484d-a742-bc6a7e7b291f" name="gen_chords" x="84" y="140">
       <params>
-         <frac32.s.map name="lp_1:pitch" MidiCC="1" value="20.0"/>
-         <frac32.u.map name="lp_1:reso" MidiCC="2" value="3.0"/>
+         <frac32.s.map name="lp_1:pitch" MidiCC="1" value="9.0"/>
+         <frac32.u.map name="lp_1:reso" MidiCC="2" value="1.5"/>
       </params>
       <attribs>
          <combo attributeName="poly" selection="3"/>
          <combo attributeName="midichannel" selection="2"/>
-         <combo attributeName="mididevice" selection="omni"/>
+         <combo attributeName="mididevice" selection="din"/>
          <combo attributeName="midiport" selection="omni"/>
       </attribs>
       <subpatch appVersion="1.0.12">
@@ -231,7 +232,7 @@
          </windowPos>
       </subpatch>
    </patcher>
-   <patcher type="patch/patcher" uuid="39e47f9e-d443-44eb-8fb6-65024bf7b65b" name="kick" x="434" y="210">
+   <patcher type="patch/patcher" uuid="ea4d86b9-803a-4ece-926f-231067e1217c" name="kick" x="434" y="210">
       <params>
          <frac32.u.map name="kick_1:decay" value="36.5"/>
          <frac32.u.map name="kick_1:pitchdecay" value="16.5"/>
@@ -241,7 +242,7 @@
       </params>
       <attribs>
          <combo attributeName="midichannel" selection="3"/>
-         <combo attributeName="mididevice" selection="omni"/>
+         <combo attributeName="mididevice" selection="din"/>
          <combo attributeName="midiport" selection="omni"/>
       </attribs>
       <subpatch appVersion="1.0.12">
@@ -295,16 +296,16 @@
          </windowPos>
       </subpatch>
    </patcher>
-   <patcher type="patch/patcher" uuid="58f044fe-6bf2-42f0-bf5d-fb69ce6179da" name="patcher_1" x="770" y="378">
+   <patcher type="patch/patcher" uuid="d0c036af-8ec3-4ab6-a708-bd13f306003f" name="lead" x="770" y="378">
       <params>
-         <frac32.u.map name="blown_1:timbre" MidiCC="9" value="25.0"/>
-         <frac32.u.map name="blown_1:color" MidiCC="10" value="47.0"/>
-         <frac32.s.map name="adsr_1:r" MidiCC="11" value="2.0"/>
+         <frac32.u.map name="blown_1:timbre" MidiCC="9" value="24.0"/>
+         <frac32.u.map name="blown_1:color" MidiCC="10" value="41.5"/>
+         <frac32.s.map name="adsr_1:r" MidiCC="11" value="0.0"/>
       </params>
       <attribs>
          <combo attributeName="poly" selection="3"/>
          <combo attributeName="midichannel" selection="5"/>
-         <combo attributeName="mididevice" selection="omni"/>
+         <combo attributeName="mididevice" selection="din"/>
          <combo attributeName="midiport" selection="omni"/>
       </attribs>
       <subpatch appVersion="1.0.12">
@@ -378,6 +379,14 @@
          </windowPos>
       </subpatch>
    </patcher>
+   <obj type="tb/midi/utils/midithru" uuid="b3868bd5-625c-4482-9948-a34e59fe2a21" name="midithru_1" x="98" y="490">
+      <params/>
+      <attribs>
+         <combo attributeName="input" selection="usb host port 1"/>
+         <combo attributeName="output" selection="din"/>
+         <combo attributeName="led" selection="on"/>
+      </attribs>
+   </obj>
    <nets>
       <net>
          <source obj="mix_1" outlet="out"/>
@@ -393,7 +402,7 @@
          <dest obj="mix_1" inlet="in1"/>
       </net>
       <net>
-         <source obj="patcher_1" outlet="outlet_1"/>
+         <source obj="lead" outlet="outlet_1"/>
          <dest obj="mix_1" inlet="in4"/>
       </net>
       <net>
@@ -412,7 +421,7 @@
    <windowPos>
       <x>86</x>
       <y>0</y>
-      <width>927</width>
+      <width>1470</width>
       <height>1087</height>
    </windowPos>
 </patch-1.0>

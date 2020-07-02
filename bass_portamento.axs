@@ -1,11 +1,4 @@
 <patch-1.0 appVersion="1.0.12">
-   <obj type="midi/in/keyb zone lru" uuid="36a44968a4f8b980273e94dca846b7544a3c45d2" name="keyb_2" x="0" y="168">
-      <params/>
-      <attribs>
-         <spinner attributeName="startNote" value="0"/>
-         <spinner attributeName="endNote" value="127"/>
-      </attribs>
-   </obj>
    <obj type="logic/flipflop" uuid="f9b15363f5ee203152e062c08a8846f0074b0ea5" name="flipflop_1" x="140" y="168">
       <params/>
       <attribs/>
@@ -54,6 +47,10 @@
       <params/>
       <attribs/>
    </obj>
+   <obj type="midi/ctrl/mpe" uuid="94323477e6476a10b9332922e5dfcd2705641af1" name="mpe_1" x="14" y="182">
+      <params/>
+      <attribs/>
+   </obj>
    <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_3" x="560" y="224">
       <params/>
       <attribs/>
@@ -81,20 +78,46 @@
       </params>
       <attribs/>
    </obj>
-   <obj type="lfo/sine r" uuid="725d481acbefa181fa5d92f414d317c86b77b789" name="sine_1" x="112" y="336">
-      <params>
-         <frac32.s.map name="pitch" onParent="true" value="0.0"/>
-      </params>
-      <attribs/>
-   </obj>
-   <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_1" x="224" y="336">
-      <params>
-         <frac32.u.map name="amp" onParent="true" value="0.0"/>
-      </params>
+   <obj type="math/abs" uuid="4ae01ff03753539d9028888689654235fa199936" name="abs_1" x="126" y="308">
+      <params/>
       <attribs/>
    </obj>
    <obj type="gain/vca" uuid="a9f2dcd18043e2f47364e45cb8814f63c2a37c0d" name="vca_4" x="560" y="350">
       <params/>
+      <attribs/>
+   </obj>
+   <obj type="ctrl/dial p" uuid="cc5d2846c3d50e425f450c4b9851371b54f4d674" name="vibrato_amt" x="56" y="364">
+      <params>
+         <frac32.u.map name="value" onParent="true" value="3.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_2" x="644" y="364">
+      <params>
+         <frac32.u.map name="amp" value="40.5"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/*" uuid="922423f2db9f222aa3e5ba095778288c446da47a" name="*_1" x="168" y="378">
+      <params/>
+      <attribs/>
+   </obj>
+   <obj type="math/-c" uuid="bc70bed87e5405985ade03f4806b9450609a9093" name="-c_1" x="168" y="448">
+      <params>
+         <frac32.u.map name="c" value="64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="lfo/sine r" uuid="725d481acbefa181fa5d92f414d317c86b77b789" name="sine_1" x="252" y="476">
+      <params>
+         <frac32.s.map name="pitch" onParent="true" value="-64.0"/>
+      </params>
+      <attribs/>
+   </obj>
+   <obj type="math/*c" uuid="7d5ef61c3bcd571ee6bbd8437ef3612125dfb225" name="*c_1" x="392" y="476">
+      <params>
+         <frac32.u.map name="amp" onParent="true" value="0.0"/>
+      </params>
       <attribs/>
    </obj>
    <nets>
@@ -107,25 +130,16 @@
          <dest obj="*c_1" inlet="in"/>
       </net>
       <net>
-         <source obj="glide_1" outlet="out"/>
-         <dest obj="pwm_1" inlet="pitch"/>
-         <dest obj="sine_2" inlet="pitch"/>
-      </net>
-      <net>
          <source obj="flipflop_1" outlet="o"/>
          <dest obj="glide_1" inlet="en"/>
       </net>
       <net>
-         <source obj="keyb_2" outlet="note"/>
-         <dest obj="glide_1" inlet="in"/>
-      </net>
-      <net>
-         <source obj="keyb_2" outlet="gate"/>
+         <source obj="mpe_1" outlet="gate"/>
          <dest obj="flipflop_1" inlet="reset"/>
          <dest obj="adsr_1" inlet="gate"/>
       </net>
       <net>
-         <source obj="keyb_2" outlet="gate2"/>
+         <source obj="mpe_1" outlet="gate2"/>
          <dest obj="flipflop_1" inlet="set"/>
       </net>
       <net>
@@ -144,11 +158,6 @@
       <net>
          <source obj="vca_1" outlet="o"/>
          <dest obj="vca_3" inlet="a"/>
-      </net>
-      <net>
-         <source obj="keyb_2" outlet="velocity"/>
-         <dest obj="vca_3" inlet="v"/>
-         <dest obj="vca_4" inlet="v"/>
       </net>
       <net>
          <source obj="vca_2" outlet="o"/>
@@ -183,6 +192,48 @@
          <source obj="mux_1" outlet="o"/>
          <dest obj="outlet_1" inlet="outlet"/>
       </net>
+      <net>
+         <source obj="glide_1" outlet="out"/>
+         <dest obj="sine_2" inlet="pitch"/>
+         <dest obj="pwm_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="mpe_1" outlet="pitch"/>
+         <dest obj="glide_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mpe_1" outlet="velocity"/>
+         <dest obj="vca_3" inlet="v"/>
+         <dest obj="vca_4" inlet="v"/>
+      </net>
+      <net>
+         <source obj="mpe_1" outlet="pressure"/>
+         <dest obj="*c_2" inlet="in"/>
+      </net>
+      <net>
+         <source obj="mpe_1" outlet="timbre"/>
+         <dest obj="abs_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="abs_1" outlet="out"/>
+         <dest obj="*_1" inlet="a"/>
+      </net>
+      <net>
+         <source obj="*_1" outlet="result"/>
+         <dest obj="-c_1" inlet="in"/>
+      </net>
+      <net>
+         <source obj="vibrato_amt" outlet="out"/>
+         <dest obj="*_1" inlet="b"/>
+      </net>
+      <net>
+         <source obj="-c_1" outlet="out"/>
+         <dest obj="sine_1" inlet="pitch"/>
+      </net>
+      <net>
+         <source obj="*c_2" outlet="out"/>
+         <dest obj="vcf3_1" inlet="pitch"/>
+      </net>
    </nets>
    <settings>
       <subpatchmode>normal</subpatchmode>
@@ -196,8 +247,8 @@
    </settings>
    <notes><![CDATA[]]></notes>
    <windowPos>
-      <x>86</x>
-      <y>0</y>
+      <x>286</x>
+      <y>21</y>
       <width>927</width>
       <height>1087</height>
    </windowPos>
